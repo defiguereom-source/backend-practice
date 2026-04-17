@@ -40,3 +40,8 @@ Texto = 2;
 
 #Constantes (no exiten pero si ves una variable en mayusculas quiere decir que es una constante)
 PI = 3.14   
+
+#Muestra todos los metodos para string =>
+
+metodos = "Hola Mundo";
+print(dir(metodos));
