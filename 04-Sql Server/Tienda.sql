@@ -38,7 +38,22 @@ use Tienda;
   id_productos int,
   cantidad int,
   fecha datetime,
+  total decimal(10,2)
   );
+
+  
+create table historial_ventas (
+    id_historial int primary key identity(1,1) not null,
+    id_venta int,
+    id_producto int,
+    cantidad int,
+    precio decimal(10,2),
+    total decimal(10,2),
+    fecha_venta datetime,
+    fecha_registro datetime default CURRENT_TIMESTAMP
+);
+
+select * from historial_ventas;
 
   /*-------------------------------------
 	 Primary Keys
@@ -59,6 +74,12 @@ use Tienda;
   references empleados(id_empleados);
 
   alter table ventas add constraint fk_productos foreign key (id_productos) 
+  references productos(id_productos);
+
+  alter table historial_ventas add constraint fk_venta foreign key(id_venta) 
+  references ventas(id_ventas);
+
+  alter table historial_ventas add constraint fk_producto foreign key(id_producto)
   references productos(id_productos);
 
   /*--------------------------------------
@@ -301,4 +322,26 @@ create procedure agregar_empleado
 	/*-----------------------------------------
 		Triggers
 	------------------------------------------*/
-
+	create trigger trg_historial_ventas
+	on ventas
+	after insert
+	as
+	begin
+		insert into historial_ventas (
+			id_venta,
+			id_producto,
+			cantidad,
+			precio,
+			total,
+			fecha_venta,
+			id_empleado
+		)
+		select 
+		  id_ventas,
+		  id_clientes,
+		  id_productos,
+		  cantidad,
+		  fecha,
+		  total,
+		  id_empleados from inserted;
+	end;
