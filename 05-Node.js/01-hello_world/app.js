@@ -15,4 +15,8 @@ console.log(process.env.HOME); //Muestra el directorio home del usuario actual
 console.log(os.userInfo()); //Muestra la información del usuario actual
 
 // modulo timers
+function mostrarTema(tema){
+    console.log(`Estoy aprendiendo ${tema}`);
+}
+setTimeout(mostrarTema, 5000, "Node.js"); //Ejecuta la función mostrarTema después de 2 segundos con el argumento "Node.js"
 

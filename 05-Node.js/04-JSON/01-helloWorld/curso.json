@@ -1,0 +1,15 @@
+{
+    "titulo": "Curso de Node.js",
+    "numVistas": 1000,
+    "numLikes": 500,
+    "numDislikes": 100,
+    "temas": [
+        "Introducción a Node.js",
+        "Módulos en Node.js",
+        "Eventos en Node.js",
+        "Streams en Node.js",
+        "Express.js"
+    ],
+    "esPublico": true
+}
+
