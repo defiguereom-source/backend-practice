@@ -467,3 +467,43 @@ go
 /*--------------------------------------
 	pruebas
 ----------------------------------------*/
+
+/*--------------------------------------
+	prueba 1: agregar cliente
+----------------------------------------*/
+exec agregar_cliente 'Juan', 'Pérez', 25, 'juan.perez@email.com', '001-1234567-8';
+exec consultar_clientes;
+go
+
+/*--------------------------------------
+	prueba 2: agregar empleado
+----------------------------------------*/
+exec agregar_empleado 'Ana', 'Martínez', 22, 'ana.martinez@tienda.com', '809-555-1111', '001-4567890-1';
+exec consultar_empleados;
+go
+
+/*--------------------------------------
+	prueba 3: agregar producto
+----------------------------------------*/
+exec agregar_producto 'Laptop Dell', 'Laptop Dell Inspiron 15, 8GB RAM, 256GB SSD', 45000.00, 20;
+exec consultar_productos;
+go
+
+/*--------------------------------------
+	prueba 4: agregar venta
+----------------------------------------*/
+exec agregar_venta 1, 1, 1, 2;
+exec consultar_ventas;
+go
+
+/*--------------------------------------
+	prueba 5: verificar stock actualizado
+----------------------------------------*/
+select nombre, precio, stock from productos where id_productos = 1;
+go
+
+/*--------------------------------------
+	prueba 6: verificar historial de ventas
+----------------------------------------*/
+exec consultar_historial_ventas;
+go
