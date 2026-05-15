@@ -1,0 +1,8 @@
+Estos son los comandos que se utilizaron para instalar y crear un paquete
+
+npm init (esto es para hacer un paquete)
+
+npm install express (en este caso se instalo express)
+
+npm uninstall express 
+
